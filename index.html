@@ -9,132 +9,119 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <style>
-    /* Global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Gör html till full bakgrund */
-html {
-  height: 100%;
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #0d0d0d, #1f0f1f, #0d0d0d);
-  background-size: 400% 400%;
-  animation: gradientMove 20s ease infinite;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
 
-/* Body innehåller bara innehållet */
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  font-family: 'Quicksand', sans-serif;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  background: transparent; /* Låt html stå för bakgrund */
-}
+      /* Mörk bakgrund med subtila blå/röda toner */
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #0d0d0d, #1f0f1f, #0d0d0d);
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease infinite;
+    }
 
-/* Gradient-animation */
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-/* Subtila ljuspunkter */
-body::after {
-  content: "";
-  position: absolute;
-  top: -50px; left: -50px; right: -50px; bottom: -50px;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
+    /* Subtila ljuspunkter */
+    body::after {
+      content: "";
+      position: absolute;
+      top: -50px; left: -50px; right: -50px; bottom: -50px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* Logotyp / titel */
-h1 {
-  font-family: 'Momo Trust Display', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  margin-bottom: 30px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.25);
-  z-index: 1;
-  position: relative;
-}
+    h1 {
+      font-family: 'Momo Trust Display', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin-bottom: 30px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+      z-index: 1;
+      position: relative;
+    }
 
-/* Glassmorphism-kort */
-.card {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
-  border-radius: 25px;
-  padding: 40px 25px;
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3), inset 0 0 25px rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
-  position: relative;
-}
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(25px);
+      border-radius: 25px;
+      padding: 40px 25px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3), inset 0 0 25px rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1;
+      position: relative;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.35), inset 0 0 30px rgba(255,255,255,0.15);
-}
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35), inset 0 0 30px rgba(255,255,255,0.15);
+    }
 
-/* Underrubrik */
-h2 {
-  font-size: 1.6rem;
-  margin-bottom: 25px;
-  color: #fff;
-}
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      color: #fff;
+    }
 
-/* Brödtext */
-p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #f0f0f0;
-}
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f0f0f0;
+    }
 
-/* Social-länk */
-.social-link {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #1DA1F2;
-  text-decoration: none;
-  font-weight: 600;
-  z-index: 1;
-  position: relative;
-  transition: color 0.2s ease;
-}
+    .social-link {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #1DA1F2;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 1;
+      position: relative;
+      transition: color 0.2s ease;
+    }
 
-.social-link:hover {
-  color: #0d8ddb;
-}
+    .social-link:hover {
+      color: #0d8ddb;
+    }
 
-/* Responsiv design */
-@media (max-width: 400px) {
-  h1 {
-    font-size: clamp(2rem, 10vw, 3rem);
-    margin-bottom: 25px;
-  }
-  h2 {
-    font-size: 1.3rem;
-  }
-  p {
-    font-size: 0.95rem;
-  }
-  .social-link {
-    font-size: 0.95rem;
-  }
-}
+    @media (max-width: 400px) {
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+        margin-bottom: 25px;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      .social-link {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
