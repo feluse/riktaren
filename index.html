@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kompasskollen – Kommer snart</title>
+  <title>Kompasskollen - Kommer snart</title>
   <meta name="description" content="Kompasskollen granskar och betygsätter Sveriges valkompasser inför riksdagsvalet 2026. Lanseras våren 2026." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kompasskollen – Kommer snart" />
+  <meta property="og:title" content="Kompasskollen - Kommer snart" />
   <meta property="og:description" content="Oberoende granskning av Sveriges valkompasser inför riksdagsvalet 2026. Lanseras våren 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.kompasskollen.se/" />
   <meta property="og:locale" content="sv_SE" />
-
-  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>" />
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg: #f7f6f3;
@@ -36,9 +26,7 @@
       --font-body: 'DM Sans', system-ui, sans-serif;
     }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       background: var(--bg);
@@ -51,11 +39,7 @@
       min-height: 100vh;
     }
 
-    /* ---- NAV ---- */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-    }
+    header { border-bottom: 1px solid var(--border); padding: 0 24px; }
 
     nav {
       max-width: 860px;
@@ -73,7 +57,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* ---- MAIN ---- */
     main {
       flex: 1;
       display: flex;
@@ -82,7 +65,7 @@
     }
 
     .content {
-      max-width: 560px;
+      max-width: 520px;
       margin: 0 auto;
       width: 100%;
     }
@@ -113,16 +96,15 @@
     }
 
     h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+  font-style: italic;
+  color: #1d4e89;
+}
 
     .description {
       font-size: 1.05rem;
       color: var(--text-muted);
       line-height: 1.75;
       margin-bottom: 48px;
-      max-width: 460px;
       opacity: 0;
       animation: fadeUp 0.5s ease 0.3s forwards;
     }
@@ -136,49 +118,82 @@
       animation: fadeUp 0.5s ease 0.4s forwards;
     }
 
-    .meta {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .notify {
       opacity: 0;
       animation: fadeUp 0.5s ease 0.5s forwards;
     }
 
-    .meta-row {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .meta-label {
-      font-size: 0.72rem;
+    .notify-label {
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
-      min-width: 80px;
+      margin-bottom: 10px;
     }
 
-    .meta-value {
-      font-size: 0.92rem;
+    .notify-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .notify-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
       color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
     }
 
-    .meta-value a {
+    .notify-form input[type="email"]:focus { border-color: var(--accent); }
+    .notify-form input[type="email"]::placeholder { color: #c0bdb8; }
+
+    .notify-form button {
+      padding: 10px 20px;
+      background: var(--text);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .notify-form button:hover { opacity: 0.75; }
+
+    .notify-confirm {
+      font-size: 0.85rem;
+      color: #2a6b3c;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .contact-hint {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-hint a {
       color: var(--accent);
       text-decoration: none;
       transition: opacity 0.15s;
     }
 
-    .meta-value a:hover {
-      opacity: 0.7;
-    }
+    .contact-hint a:hover { opacity: 0.7; }
 
-    /* ---- FOOTER ---- */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px;
-    }
+    footer { border-top: 1px solid var(--border); padding: 24px; }
 
     .footer-inner {
       max-width: 860px;
@@ -190,33 +205,11 @@
       gap: 8px;
     }
 
-    footer p {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
+    footer p { font-size: 0.78rem; color: var(--text-muted); }
 
-    /* ---- ANIMATION ---- */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 480px) {
-      .meta-row {
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .meta-label {
-        min-width: unset;
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -231,34 +224,52 @@
   <main>
     <div class="content">
       <span class="tag">Lanseras våren 2026</span>
-      <h1>Sveriges<br><em>valkompasser</em><br>– granskade</h1>
-      <p class="description">Kompasskollen samlar, granskar och betygsätter alla valkompasser inför riksdagsvalet 2026 – så att du enkelt kan hitta den som passar dig bäst.</p>
+      <h1>Sveriges <em>valkompasser</em><br>– granskade</h1>
+      <p class="description">Kompasskollen samlar, granskar och betygsätter alla valkompasser inför riksdagsvalet 2026 – så att du blir informerad, inte manipulerad.</p>
 
       <div class="divider"></div>
 
-      <div class="meta">
-        <div class="meta-row">
-          <span class="meta-label">Kontakt</span>
-          <span class="meta-value"><a href="mailto:info@kompasskollen.se">info@kompasskollen.se</a></span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Lansering</span>
-          <span class="meta-value">Våren 2026</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Syfte</span>
-          <span class="meta-value">Oberoende granskning</span>
-        </div>
+      <div class="notify">
+        <p class="notify-label">Vill du bli påmind vid lansering?</p>
+        <form class="notify-form" id="notifyForm" action="https://formspree.io/f/maqdjarb" method="POST">
+          <input type="email" name="email" placeholder="din@epost.se" required autocomplete="email" aria-label="Din e-postadress" />
+          <button type="submit">Meddela mig</button>
+        </form>
+        <p class="notify-confirm" id="confirmMsg">Tack! Vi hör av oss vid lansering.</p>
+        <p class="contact-hint">Frågor? Skriv till <a href="mailto:info@kompasskollen.se">info@kompasskollen.se</a></p>
       </div>
     </div>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p>© 2026 Kompasskollen</p>
-      <p>Oberoende granskning inför riksdagsvalet 2026</p>
+      <p>2026 Kompasskollen</p>
+      <p>Oberoende granskning infor riksdagsvalet 2026</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('notifyForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('confirmMsg').style.display = 'block';
+        } else {
+          alert('Något gick fel. Försök igen eller kontakta oss direkt.');
+        }
+      } catch(err) {
+        alert('Något gick fel. Försök igen eller kontakta oss direkt.');
+      }
+    });
+  </script>
 
 </body>
 </html>
