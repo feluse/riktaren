@@ -3,221 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kompasskollen - Kommer snart</title>
+  <title>Kompasskollen</title>
   <meta name="description" content="Kompasskollen granskar och betygsätter Sveriges valkompasser inför riksdagsvalet 2026. Lanseras våren 2026." />
-  <meta property="og:title" content="Kompasskollen - Kommer snart" />
+  <meta property="og:title" content="Kompasskollen – Kommer snart" />
   <meta property="og:description" content="Oberoende granskning av Sveriges valkompasser inför riksdagsvalet 2026. Lanseras våren 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.kompasskollen.se/" />
   <meta property="og:locale" content="sv_SE" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>" />
+  <link rel="stylesheet" href="landing.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #f7f6f3;
-      --border: #e4e2dc;
-      --text: #1a1915;
-      --text-muted: #7a7870;
-      --accent: #1d4e89;
-      --accent-light: #e8eef6;
-      --font-display: 'DM Serif Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-    }
-
-    html, body { height: 100%; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 300;
-      line-height: 1.65;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header { border-bottom: 1px solid var(--border); padding: 0 24px; }
-
-    nav {
-      max-width: 860px;
-      margin: 0 auto;
-      height: 60px;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 60px 24px;
-    }
-
-    .content {
-      max-width: 520px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 4px 10px;
-      border-radius: 2px;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.1s forwards;
-    }
-
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.2s forwards;
-    }
-
-    h1 em {
-  font-style: italic;
-  color: #1d4e89;
-}
-
-    .description {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.3s forwards;
-    }
-
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.4s forwards;
-    }
-
-    .notify {
-      opacity: 0;
-      animation: fadeUp 0.5s ease 0.5s forwards;
-    }
-
-    .notify-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .notify-form {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .notify-form input[type="email"] {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px 14px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .notify-form input[type="email"]:focus { border-color: var(--accent); }
-    .notify-form input[type="email"]::placeholder { color: #c0bdb8; }
-
-    .notify-form button {
-      padding: 10px 20px;
-      background: var(--text);
-      color: var(--bg);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
-
-    .notify-form button:hover { opacity: 0.75; }
-
-    .notify-confirm {
-      font-size: 0.85rem;
-      color: #2a6b3c;
-      margin-top: 12px;
-      display: none;
-    }
-
-    .contact-hint {
-      margin-top: 20px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .contact-hint a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-
-    .contact-hint a:hover { opacity: 0.7; }
-
-    footer { border-top: 1px solid var(--border); padding: 24px; }
-
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    footer p { font-size: 0.78rem; color: var(--text-muted); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <a href="#" class="logo">Kompasskollen</a>
+      <a href="index.html" class="logo">
+  <img src="logo-icon.png" alt="Kompasskollen" class="logo-icon" />
+  Kompasskollen
+</a>
+      <ul>
+        <li><a href="index.html" class="active">Hem</a></li>
+        <li><a href="om.html">Om oss</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -243,8 +51,8 @@
 
   <footer>
     <div class="footer-inner">
-      <p>2026 Kompasskollen</p>
-      <p>Oberoende granskning infor riksdagsvalet 2026</p>
+      <p>© 2026 Kompasskollen</p>
+      <p>Oberoende granskning inför riksdagsvalet 2026</p>
     </div>
   </footer>
 
